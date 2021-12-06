@@ -1,15 +1,25 @@
 import speech_recognition as sr
+import moviepy.editor as mp
 import keyboard
 
 r = sr.Recognizer()
-mic = False
+mic = True
 if(mic):
-    filename = "machine-learning_speech-recognition_16-122828-0002.wav"
+
+    clip = mp.VideoFileClip("BroadcastTest.mp4")
+    clip.audio.write_audiofile("BroadcastTestConv.wav", codec='pcm_s16le')
+
+    filename = "BroadcastTestConv.wav"
+
     # initialize the recognizer
     with sr.AudioFile(filename) as source:
         audio_data = r.record(source)
         text = r.recognize_google(audio_data)
         print(text)
+
+        file = open("SpeechToText.txt", "w")
+        file.write(text)
+        file.close()
 else:
     print("speak anything: ")
     try:
@@ -20,3 +30,4 @@ else:
                 print(text)
     except KeyboardInterrupt:
         pass
+
