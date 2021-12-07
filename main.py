@@ -1,15 +1,17 @@
 import speech_recognition as sr
 import moviepy.editor as mp
 import keyboard
+import os
 
 keywords = ["andre", "mp4", "converter",  "test"]
 
 r = sr.Recognizer()
 count = 0
 fileInput = True
+mp4File = "BroadcastTest.mp4"
 if(fileInput):
 
-    clip = mp.VideoFileClip("BroadcastTest.mp4")
+    clip = mp.VideoFileClip(mp4File)
     clip.audio.write_audiofile("BroadcastTestConv.wav", codec='pcm_s16le')
 
     filename = "BroadcastTestConv.wav"
@@ -26,9 +28,13 @@ if(fileInput):
                 count += 1
         print(count/(len(words)))
 
-        file = open("SpeechToText.txt", "w")
+        file = open("SpeechToText.txt", "a+")
         file.write(text)
+        file.write("\n")
         file.close()
+
+    os.remove(filename)
+    #os.remove(mp4File)
 else:
     print("speak anything: ")
     try:
