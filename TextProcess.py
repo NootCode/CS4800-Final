@@ -13,17 +13,14 @@ import keyboard
 import os
 
 keywords = ["My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", 
-            "focused", "team", "team player", "experience", "field", "engaged", "creative", "hardworking", "driven", 
-            "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", 
+            "focused", "team", "team player", "leader", "experienced", "excited", "creative", "hardworking", "driven", 
+            "computer", "science", "school", "computer science", "university", "college", "creative", "hardworking", "driven", 
             "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", 
             "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", ]
 
-# initialize the recognizer
-
-
 def getFile():
     #mp4File = GET REQUEST HERE TO GET THE MP4 FILE
-    mp4File = "TestFiles\helloTest.mp4"
+    mp4File = "TestFiles\intro.mp4"
 
     #GET THE USERID TO CREATE NEW FILES
     global userID
@@ -49,13 +46,11 @@ def convertToText(filename):
 
 def sendToBot(text):
     #SEND OUT TEXT FILE IF INTERVIEW IS COMPLETE USING PUT REQUEST 
-    print("---NEEDS IMPLEMENTATION---")
-
+    print("---SEND TO WEB NEEDS IMPLEMENTATION---")
 
 def correctnessScore(text):
     #outputs a confidence rating to the interview question
     count = 0
-    #print(text)
     words = text.split()
     for word in words:
         if word.lower() in keywords:
@@ -63,23 +58,27 @@ def correctnessScore(text):
 
     return (count/(len(words)))
 
-def writeToFile(text, score):
+def writeToFile(text, score, userNum):
     #writes text to the txt file
-    file = open("SpeechToText" + str(userID) + ".txt", "a+")
+    file = open("SpeechToText" + str(userNum) + ".txt", "a+")
     file.write(str(text))
     file.write("\nConfidence: " + str(score))
     file.write("\n")
     file.close()
 
-def removeFiles():
+def removeFiles(wavFile, mp4File):
     #removes .wav and .mp4 files from computer
     os.remove(wavFile)
     #os.remove(mp4File)
 
-mp4 = getFile()
-wavFile = convertToWav(mp4)
-text = convertToText(wavFile)
-# score = correctnessScore(text)
-# sendToBot(text)
-# writeToFile(text, score)
-removeFiles()
+def main():
+    mp4File = getFile()
+    wavFile = convertToWav(mp4File)
+    text = convertToText(wavFile)
+    score = correctnessScore(text)
+    sendToBot(text)
+    writeToFile(text, score, userID)
+    removeFiles(wavFile, mp4File)
+
+if __name__ == '__main__':
+    main()
