@@ -1,4 +1,4 @@
-#   Last Updated   - $12/7/2021$
+#   Last Updated   - $12/9/2021$
 #   Updated By     - $Andre$
 #   Python Version - 3.8.8
 """
@@ -20,7 +20,7 @@ keywords = ["My name is", "student", "years", "experience", "field", "engaged", 
 
 def getFile():
     #mp4File = GET REQUEST HERE TO GET THE MP4 FILE
-    mp4File = "TestFiles\intro.mp4"
+    mp4File = "TestFiles\\badAnswer.mp4"
 
     #GET THE USERID TO CREATE NEW FILES
     global userID

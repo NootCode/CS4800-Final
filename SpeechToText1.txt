@@ -4,3 +4,5 @@ hello my name is Andre I'm a fourth-year computer science student account pipe M
 Confidence: 0.1388888888888889
 hello my name is Andre I'm a fourth-year computer science student at Cal Poly Pomona I have about five years of experience in computer science I say I'm a team player on focus and I'm quite hard-working
 Confidence: 0.10810810810810811
+I like cats I like dogs horses are pretty cool too
+Confidence: 0.0
