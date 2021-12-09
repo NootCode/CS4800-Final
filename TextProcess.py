@@ -19,33 +19,40 @@ keywords = ["My name is", "student", "years", "experience", "field", "engaged", 
             "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", ]
 
 # initialize the recognizer
-r = sr.Recognizer()
+
 
 def getFile():
     #mp4File = GET REQUEST HERE TO GET THE MP4 FILE
-    mp4File = "BroadcastTest.mp4"
+    mp4File = "TestFiles\helloTest.mp4"
 
     #GET THE USERID TO CREATE NEW FILES
     global userID
     userID = 1
 
+    return mp4File
+
+def convertToWav(mp4File):
+    #convert MP4 to WAV File
     clip = mp.VideoFileClip(mp4File)
     clip.audio.write_audiofile("Convert.wav", codec='pcm_s16le')
 
     return "Convert.wav"
 
 def convertToText(filename):
+    #convert WAV file to text using speech_recognition
+    global r
+    r = sr.Recognizer()
     with sr.AudioFile(filename) as source:
         audio_data = r.record(source)
         text = r.recognize_google(audio_data)
-
         return text
 
 def sendToBot(text):
+    #SEND OUT TEXT FILE IF INTERVIEW IS COMPLETE USING PUT REQUEST 
     print("---NEEDS IMPLEMENTATION---")
 
 
-def textProcess(text):
+def correctnessScore(text):
     #outputs a confidence rating to the interview question
     count = 0
     #print(text)
@@ -56,11 +63,11 @@ def textProcess(text):
 
     return (count/(len(words)))
 
-def writeToFile(text, conf):
+def writeToFile(text, score):
     #writes text to the txt file
     file = open("SpeechToText" + str(userID) + ".txt", "a+")
     file.write(str(text))
-    file.write("\nConfidence: " + str(conf))
+    file.write("\nConfidence: " + str(score))
     file.write("\n")
     file.close()
 
@@ -69,12 +76,10 @@ def removeFiles():
     os.remove(wavFile)
     #os.remove(mp4File)
 
-wavFile = getFile()
+mp4 = getFile()
+wavFile = convertToWav(mp4)
 text = convertToText(wavFile)
-confidence = textProcess(text)
-sendToBot(text)
-writeToFile(text, confidence)
+# score = correctnessScore(text)
+# sendToBot(text)
+# writeToFile(text, score)
 removeFiles()
-#SEND OUT TEXT FILE IF INTERVIEW IS COMPLETE USING PUT REQUEST 
-
-
