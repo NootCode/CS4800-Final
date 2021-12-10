@@ -6,3 +6,9 @@ hello my name is Andre I'm a fourth-year computer science student at Cal Poly Po
 Confidence: 0.10810810810810811
 I like cats I like dogs horses are pretty cool too
 Confidence: 0.0
+I like cats I like dogs horses are pretty cool too
+Confidence: 0.0
+I like cats I like dogs horses are pretty cool too
+Confidence: 0.0
+I like cats I like dogs horses are pretty cool too
+Confidence: 0.0

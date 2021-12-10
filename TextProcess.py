@@ -16,7 +16,13 @@ keywords = ["My name is", "student", "years", "experience", "field", "engaged", 
             "focused", "team", "team player", "leader", "experienced", "excited", "creative", "hardworking", "driven", 
             "computer", "science", "school", "computer science", "university", "college", "creative", "hardworking", "driven", 
             "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", 
-            "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven", ]
+            "My name is", "student", "years", "experience", "field", "engaged", "creative", "hardworking", "driven",
+            "opportunity", "respect", "skills", "goals", "team", "knowledge", "weakness", "confident", "position",
+            "dream", "goal", "confidence", "opportunities", "role", "growth", "aspirations", "ambition", "ambitions",
+            "align", "aligns", "success", "quality", "qualities", "accomplishment", "accomplish", "accomplishments",
+            "excel", "manage", "motivated", "motivations", "motivates", "motivate", "grow", "bring", "enthusiasm",
+            "enthusiastic", "passion", "passionate", "passions", "work", "working", "communicate", "communication",
+            "flexible", "proactive", "talent", "talented", "knowledgeable", "reliable"]
 
 def getFile():
     #mp4File = GET REQUEST HERE TO GET THE MP4 FILE
