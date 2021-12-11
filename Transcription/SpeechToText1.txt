@@ -1,0 +1,4 @@
+this is Andre testing the speech-to-text functionality keyword test talented knowledgeable reliable motivate grow knowledge College
+Confidence: 0.4375
+I like cats I like dogs horses are pretty cool too
+Confidence: 0.0

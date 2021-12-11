@@ -66,7 +66,7 @@ def correctnessScore(text):
 
 def writeToFile(text, score, userNum):
     #writes text to the txt file
-    file = open("SpeechToText" + str(userNum) + ".txt", "a+")
+    file = open("Transcription/SpeechToText" + str(userNum) + ".txt", "a+")
     file.write(str(text))
     file.write("\nConfidence: " + str(score))
     file.write("\n")
